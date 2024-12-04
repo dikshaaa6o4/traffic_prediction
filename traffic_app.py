@@ -1,3 +1,15 @@
+import subprocess
+import sys
+
+def install_requirements():
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+    except subprocess.CalledProcessError as e:
+        print(f"Error while installing requirements: {e}")
+        sys.exit(1)
+
+# Run the function to install requirements
+install_requirements()
 import warnings
 warnings.filterwarnings("ignore") 
 import streamlit as st
